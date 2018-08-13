@@ -70,7 +70,7 @@ function switchTurn(){
 // swtch.imgLoad();
 
 var btryEValue = 6;
-var btryRValue = 0.3+(Math.random()/2);
+var btryRValue = 10+(Math.random()*20);
 console.log("Battery inner resistance : "+btryRValue.toFixed(4));
 var btry = new Image();
 btry.src = "./res/battery.png";
@@ -154,6 +154,9 @@ var tblValues = tblData.getElementsByTagName("td");
 btnRecord.addEventListener("click",recordData);
 
 function recordData(e){
+    for(i=0 ;i<tblValues.length ;i+=3){
+        if(tblValues[i].innerHTML == amValue.toFixed(4))return;
+    }
     tblData.innerHTML += "<tr><td>"+amValue.toFixed(4)+"</td><td>"+vmValue.toFixed(3)+"</td><td>"+vrValue.toFixed(4)+"</td></tr>";
 }
 
